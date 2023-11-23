@@ -4,7 +4,7 @@ function getFloor(int $currentFloor, ?int $requestedFloor, array $calledFloors):
     if ($requestedFloor !== null) {
         return $requestedFloor;
     }
-    $closestFloor = null;
+    $closestFloor = 0;
     foreach ($calledFloors as $floor) {
         if ($closestFloor === null || abs($currentFloor - $floor) < abs($currentFloor - $closestFloor)) {
             $closestFloor = $floor;
