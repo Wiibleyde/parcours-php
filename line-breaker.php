@@ -1,6 +1,6 @@
 <?php
 
-function breakLines($string, $maxLength) {
+function breakLines($string, $maxLength): string {
     $result = '';
 
     while ($string != '') {
