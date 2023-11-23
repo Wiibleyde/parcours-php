@@ -1,11 +1,8 @@
 <?php
-
-function factorial(int $number): int {
+function factorial(int $number): float|int {
     if ($number <= 1) {
-        return 1;
-    } else {
         return $number * factorial($number - 1);
     }
+    return 1;
 }
-
 ?>
