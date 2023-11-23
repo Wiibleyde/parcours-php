@@ -8,11 +8,20 @@ function lowerMe(string $toLower): string {
 }
 
 function upperCaseFirst(string $toTransform): string {
-    return ucfirst($toTransform);
+    return ucwords($toTransform);
 }
 
 function lowerCaseFirst(string $toTransform): string {
-    return lcfirst($toTransform);
+    $splitted = explode(" ", $toTransform);
+    $result = "";
+    foreach ($splitted as $word) {
+        if ($word == end($splitted)) {
+            $result .= lcfirst($word);
+            break;
+        }
+        $result .= lcfirst($word) . " ";
+    }
+    return $result;
 }
 
 function removeBlankSpace(string $toTransform): string {
