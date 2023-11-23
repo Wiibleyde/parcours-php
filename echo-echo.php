@@ -1,6 +1,5 @@
 <?php
 $myVariable = 12;
-
-echo $myVariable . "\n";
+echo "This is my first echo !\n";
 echo "My variable: " . $myVariable . "\n";
 ?>
