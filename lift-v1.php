@@ -22,17 +22,29 @@ function getFloor(int $currentFloor, ?int $requestFloor, array $listButtonCalled
     }
 }
 
-function getDirection(int $currentFloor, ?int $requestFloor): int {
+function getDirection(int $currentFloor, ?int $requestFloor, array $listButtonCalled): string {
     if (is_int($requestFloor)) {
-        if ($currentFloor < $requestFloor) {
+        if ($requestFloor > $currentFloor) {
             return 1;
-        } elseif ($currentFloor > $requestFloor) {
+        } elseif ($requestFloor < $currentFloor) {
             return -1;
         } else {
             return 0;
         }
     } else {
-        return 0;
+        if (count($listButtonCalled) == 0) {
+            return 1;
+        }
+        $i = true;
+        $scale = 0;
+        while ($i == true) {
+            if (in_array($currentFloor + $scale, $listButtonCalled)) {
+                return 1;
+            } elseif (in_array($currentFloor - $scale, $listButtonCalled)) {
+                return -1;
+            }
+            $scale++;
+        }
     }
 }
 ?>
