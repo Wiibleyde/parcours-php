@@ -8,7 +8,11 @@ for ($i = 2; $i < 100; $i++) {
         }
     }
     if ($isPrime) {
-        echo $i . ', ';
+        if ($i == 99) {
+            echo $i;
+        } else {
+            echo $i . ', ';
+        }
     }
 }
 ?>
