@@ -3,13 +3,13 @@
 $hour = date('H');
 
 if ($hour >= 6 && $hour <= 12) {
-    echo "Bonjour! Passez une bonne journée :)";
+    echo "Hello! Have a nice day :)";
 } elseif ($hour > 12 && $hour <= 18) {
-    echo "Passez une bonne après-midi!";
+    echo "Have a good afternoon!";
 } elseif ($hour > 18 && $hour <= 21) {
-    echo "Bonsoir! J'espère que vous avez passé une bonne journée!";
+    echo "Good evening! Hope you had a good day!";
 } else {
-    echo "Bonne nuit! À demain :)";
+    echo "Good night! See you tomorrow :)";
 }
 
 ?>
