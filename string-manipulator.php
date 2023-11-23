@@ -25,6 +25,8 @@ function lowerCaseFirst(string $toTransform): string {
 }
 
 function removeBlankSpace(string $toTransform): string {
-    return str_replace(" ","", $toTransform);
+    return trim($toTransform);
 }
+
+echo removeBlankSpace("Are you okey ??    ");
 ?>
