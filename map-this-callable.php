@@ -2,7 +2,7 @@
 
 function myArrayMap(callable $callback, array $array, array ...$arrays): array {
     if(!is_callable($callback)) {
-        throw new TypeError('myArrayMap() expects parameter 1 to be a valid callback, no array or string given');
+        return [];
     }
     $result = [];
     $arrays = array_merge([$array], $arrays);
