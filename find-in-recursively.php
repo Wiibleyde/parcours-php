@@ -1,11 +1,11 @@
 <?php
-function findIn(string $key, array $array): string|bool {
-    foreach ($array as $value => $item) {
-        if ($value === $key) {
-            return $item;
+function findIn($key, $array): string|bool {
+    foreach ($array as $k => $value) {
+        if ($k === $key) {
+            return $value;
         } elseif (is_array($value)) {
             $result = findIn($key, $value);
-            if ($result === true) {
+            if ($result !== false) {
                 return $result;
             }
         }
@@ -13,7 +13,6 @@ function findIn(string $key, array $array): string|bool {
 
     return false;
 }
-
 $tab = [
     "name" => "forIn",
     "type" => "function",
@@ -26,6 +25,4 @@ $tab = [
     ],
     "return" => "string or bool"
 ];
-
-echo findIn("description", $tab);
 ?>
