@@ -5,13 +5,14 @@ function explodeWords(string $str, string $separator = ' ', int $limit = PHP_INT
     $word = '';
     $len = strlen($str);
     for ($i = 0; $i < $len; $i++) {
-        if ($str[$i] != $separator || $i == $len - 1) {
+        if ($str[$i] != $separator) {
             $word .= $str[$i];
         }
         if ($str[$i] == $separator || $i == $len - 1) {
             $result[] = $word;
             $word = '';
             if (count($result) == $limit) {
+                $result[count($result) - 1] .= substr($str, $i);
                 break;
             }
         }
