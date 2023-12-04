@@ -1,6 +1,6 @@
 <?php
 
-function joinWord(array $listToJoin, $separator = " ") {
+function joinWords(array $listToJoin, $separator = " ") {
     $result = "";
     for ($i = 0; $i < count($listToJoin); $i++) {
         $result .= $listToJoin[$i];
@@ -11,5 +11,5 @@ function joinWord(array $listToJoin, $separator = " ") {
     return $result;    
 }
 
-echo joinWord(["Hello", "world"], "A");
+echo joinWords(["Hello", "world", "!", "How", "are", "you", "doing", "today?"], "OUAIS");
 ?>
