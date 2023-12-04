@@ -1,6 +1,6 @@
 <?php
 
-function dnaDiff(string $dna1, string $dna2) {
+function dnaDiff(string $dna1, string $dna2): int|bool {
     if (strlen($dna1) != strlen($dna2)) {
         return false;
     }
