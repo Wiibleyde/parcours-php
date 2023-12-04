@@ -6,7 +6,7 @@ function findIn(string $key, array $array): string|bool {
         } elseif (is_array($value)) {
             $result = findIn($key, $value);
             if ($result === true) {
-                return true;
+                return $result;
             }
         }
     }
@@ -27,5 +27,5 @@ $tab = [
     "return" => "string or bool"
 ];
 
-echo findIn("name", $tab);
+echo findIn("description", $tab);
 ?>
