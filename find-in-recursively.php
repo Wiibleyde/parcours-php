@@ -3,7 +3,7 @@ function findIn(string $key, array $array): string|bool {
     // Recursive function to find a key in an array
     foreach ($array as $value) {
         if ($value === $key) {
-            return true;
+            return $value;
         } elseif (is_array($value)) {
             $result = findIn($key, $value);
             if ($result === true) {
