@@ -1,6 +1,10 @@
 <?php
 
 function findMaximumSubarray(array $arr): int | float {
+    if (empty($arr)) {
+        return 0;
+    }
+
     $max = $arr[0];
     $sum = 0;
     foreach ($arr as $val) {
@@ -13,7 +17,6 @@ function findMaximumSubarray(array $arr): int | float {
         }
     }
     return $max;
-
 }
 
 echo findMaximumSubarray([-2, 1, -3, 4, -1, 2, 1, -5, 4]);
