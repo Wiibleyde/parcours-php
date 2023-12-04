@@ -1,6 +1,9 @@
 <?php
 
 function myArrayMap(callable $callback, array $array, array ...$arrays): array {
+    if(!is_callable($callback)) {
+        throw new TypeError('myArrayMap() expects parameter 1 to be a valid callback, no array or string given');
+    }
     $result = [];
     $arrays = array_merge([$array], $arrays);
     $length = 0;
