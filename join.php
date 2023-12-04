@@ -1,6 +1,6 @@
 <?php
 
-function joinWords(array $listToJoin, $separator = " ") {
+function joinWords(array $listToJoin, $separator = " "): string {
     $result = "";
     for ($i = 0; $i < count($listToJoin); $i++) {
         $result .= $listToJoin[$i];
