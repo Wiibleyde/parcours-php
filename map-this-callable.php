@@ -1,18 +1,13 @@
 <?php
 
-function myArrayMap(callable $callback, array ...$arrays): array {
-    if (count($arrays) < 2) {
-        throw new InvalidArgumentException('myArrayMap expects at least two arrays');
-    }
-
+function myArrayMap(callable $callback, array $array, array ...$arrays): array {
     $result = [];
-    $length = count($arrays[0]);
-
-    for ($i = 0; $i < $length; $i++) {
-        $params = array_column($arrays, $i);
-        $result[] = $callback(...$params);
+    $arrays = array_merge([$array], $arrays);
+    $count = count($arrays[0]);
+    for ($i = 0; $i < $count; $i++) {
+        $args = array_map(fn($array) => $array[$i], $arrays);
+        $result[] = $callback(...$args);
     }
-
     return $result;
 }
 
