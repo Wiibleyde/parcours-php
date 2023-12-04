@@ -3,16 +3,20 @@
 function myArrayMap(callable $callback, array $array, array ...$arrays): array {
     $result = [];
     $arrays = array_merge([$array], $arrays);
-    $count = count($arrays[0]);
-
-    for ($i = 0; $i < $count; $i++) {
-        $args = [];
-        foreach ($arrays as $arr) {
-            $args[] = $arr[$i];
-        }
-        $result[] = $callback(...$args);
+    $length = 0;
+    foreach ($arrays as $arr) {
+        $length = max($length, count($arr));
     }
-
+    
+    for ($i = 0; $i < $length; $i++) {
+        $params = [];
+        foreach ($arrays as $arr) {
+            $params[] = $arr[$i] ?? null;
+        }
+        
+        $result[] = $callback(...$params);
+    }
+    
     return $result;
 }
 
