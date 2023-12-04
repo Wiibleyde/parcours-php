@@ -1,6 +1,5 @@
 <?php
 function findIn(string $key, array $array): string|bool {
-    // Recursive function to find a key in an array
     foreach ($array as $value => $item) {
         if ($value === $key) {
             return $item;
