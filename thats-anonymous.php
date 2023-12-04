@@ -8,4 +8,7 @@ $isLeapYear = function($year) {
 };
 
 echo $today();
+echo "\n";
+echo $isLeapYear(2016) ? "true" : "false";
+echo "\n";
 ?>
