@@ -1,6 +1,6 @@
 <?php
 $today = function() {
-    return "It is " . date("F j, Y");
+    return "It is " . date("F d, Y");
 };
 
 $isLeapYear = function($year) {
