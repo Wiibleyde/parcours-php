@@ -1,26 +1,39 @@
 <?php
 
-function myArrayMap(callable $callback, array $array, array ...$arrays): array {
-    if(!is_callable($callback)) {
-        return [];
-    }
+function myArrayMap(?callable $callback, array $array, array ...$arrays) {
     $result = [];
-    $arrays = array_merge([$array], $arrays);
-    $length = 0;
-    foreach ($arrays as $arr) {
-        $length = max($length, count($arr));
-    }
-    
-    for ($i = 0; $i < $length; $i++) {
-        $params = [];
-        foreach ($arrays as $arr) {
-            $params[] = $arr[$i] ?? null;
+    if ($callback === null) {
+        if (count($arrays) === 0) {
+            return $array;
         }
-        
-        $result[] = $callback(...$params);
+        foreach ($array as $key => $value) {
+            $element = [$value];
+            foreach ($arrays as $arr) {
+                $element[] = isset($arr[$key]) ? $arr[$key] : null;
+            }
+            $result[] = $element;
+        }
+        return $result;
     }
-    
-    return $result;
+
+    $keys = array_keys($array);
+    $bool = false;
+    foreach ($keys as $value2) {
+        if (is_string($value2)) {
+            $bool = true;
+        }
+    }
+    if (!$bool) {
+        foreach ($array as &$value) {
+            $value = $callback($value);
+        }
+        return $array;
+    } else {
+        foreach ($array as &$value) {
+            $result[] += $value;
+        }
+        return $result;
+    }
 }
 
 ?>
