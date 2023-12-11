@@ -54,7 +54,7 @@ class Playlist {
         $minutes = floor(($totalDuration / 60) % 60);
         $seconds = $totalDuration % 60;
 
-        return "Songs added: " . $this->totalMedias . "\nPlaylist length: " . sprintf("%02d", $hours) . "h " . sprintf("%02d", $minutes) . "m " . sprintf("%02d", $seconds) . "s\n";
+        return "Songs added: " . $this->totalMedias . "\nPlaylist length: " . $hours . "h " . $minutes . "m " . $seconds . "s\n";
     }
 }
 
