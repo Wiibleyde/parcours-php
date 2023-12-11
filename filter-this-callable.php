@@ -1,5 +1,5 @@
 <?php
-function myArrayFilter(array $array, ?callable $callback = null, int $mode = 0): array {
+function myArrayFilter(array $array, ?callable $callback = null): array {
     $result = [];
     if ($callback === null) {
         foreach ($array as $key => $value) {
