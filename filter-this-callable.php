@@ -4,14 +4,14 @@ function myArrayFilter(array $array, ?callable $callback = null): array {
     if ($callback === null) {
         foreach ($array as $key => $value) {
             if ($value) {
-                $result[] = $value;
+                $result[$key] = $value;
             }
         }
         return $result;
     }
     foreach ($array as $key => $value) {
         if ($callback($value, $key, $array)) {
-            $result[] = $value;
+            $result[$key] = $value;
         }
     }
     return $result;
