@@ -1,11 +1,19 @@
 <?php
-function myArrayFilter($array) {
-    $filteredArray = [];
+function myArrayFilter(array $array, ?callable $callback = null, int $mode = 0): array {
+    $result = [];
+    if ($callback === null) {
+        foreach ($array as $key => $value) {
+            if ($value) {
+                $result[] = $value;
+            }
+        }
+        return $result;
+    }
     foreach ($array as $key => $value) {
-        if ($value) {
-            $filteredArray[$key] = $value;
+        if ($callback($value, $key, $array)) {
+            $result[] = $value;
         }
     }
-    return $filteredArray;
+    return $result;
 }
 ?>
