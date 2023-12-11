@@ -1,9 +1,8 @@
 <?php
-function myArrayFilter($array, $callback)
-{
+function myArrayFilter($array) {
     $filteredArray = [];
     foreach ($array as $key => $value) {
-        if ($callback($value, $key)) {
+        if ($value) {
             $filteredArray[$key] = $value;
         }
     }
